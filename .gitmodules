@@ -1,0 +1,3 @@
+[submodule "LuaSnippets/.local/nvim/LuaSnippets"]
+	path = LuaSnippets/.local/nvim/LuaSnippets
+	url = git@github.com:purrutia/LuaSnippets.git
