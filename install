@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Install dotfiles using stow
+STOW_FOLDERS=("tmux" "nvim" "LuaSnippets")
+
+for folder in ${STOW_FOLDERS[@]}; do
+  echo "stow $folder"
+  stow -D "$folder"
+  stow "$folder"
+done
