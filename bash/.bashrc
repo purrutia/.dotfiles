@@ -186,6 +186,7 @@ PROMPT_COMMAND="__ps1"
 # ---------- ENV ----------
 export REPOS="${HOME}/repos"
 export UTILS="${REPOS}/utils/utils"
+export EDITOR='nvim'
 
 # ---------- PATH ----------
 PATH="${UTILS}:${PATH}"
