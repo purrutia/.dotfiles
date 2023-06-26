@@ -1,4 +1,5 @@
-# UBUNTU BASHRC
+# ---------- UBUNTU DEFAULT BASHRC ----------
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -57,6 +58,7 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+# ---------- Not necessary, own prompt ----------
 # if [ "$color_prompt" = yes ]; then
 #     PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 # else
@@ -109,21 +111,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# GOLANG
-PATH=$PATH:/usr/local/go/bin
+# ---------- BASHRC LOCAL ----------
+# You may want to put all your custom configuration into a separate file like
+# ~/.bashrc_local, instead of adding them here directly.
 
-# PYENV
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if [ -f ~/.bashrc_local ]; then
+    . ~/.bashrc_local
+fi
 
-# PYENV Virtualenv
-eval "$(pyenv virtualenv-init -)"
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-############################## My Prompt PS1 ##############################
-
+# ---------- My Prompt PS1 ---------- 
 PROMPT_LONG=40
 
 __ps1() {
@@ -187,15 +183,15 @@ __ps1() {
 
 PROMPT_COMMAND="__ps1"
 
-############################## ENV ##############################
+# ---------- ENV ----------
 export REPOS="${HOME}/repos"
 export UTILS="${REPOS}/utils/utils"
 
-############################## PATH ##############################
+# ---------- PATH ----------
 PATH="${UTILS}:${PATH}"
 
 
-############################## ALIASES ##############################
+# ---------- ALIASES ----------
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -204,4 +200,3 @@ PATH="${UTILS}:${PATH}"
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-
