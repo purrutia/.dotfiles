@@ -187,6 +187,7 @@ PROMPT_COMMAND="__ps1"
 export REPOS="${HOME}/repos"
 export UTILS="${REPOS}/utils/utils"
 export EDITOR='nvim'
+export ZETTELKASTEN="${HOME}/.zettelkasten"
 
 # ---------- PATH ----------
 PATH="${UTILS}:${PATH}"
