@@ -1,5 +1,5 @@
 # ---------- My Prompt PS1 ---------- 
-PROMPT_LONG=40
+PROMPT_LONG=60
 
 __ps1() {
 
@@ -24,6 +24,8 @@ __ps1() {
   local w='\[\e[32m\]'    # workpath color
   local b='\[\e[36m\]'    # git branch color
   local x='\[\e[0m\]'     # reset color
+  local lg='\[\e[1;32m\]'    # Light green
+  local lr='\[\e[1;31m\]'    # Light red
 
   local dir;
   local B=$(git branch --show-current 2>/dev/null)
@@ -44,12 +46,12 @@ __ps1() {
   local countme="$USER@$(hostname):$dir($B)\$ "
 
   if [ $B ]; then
-    B="$g ($b$B$g)"
+    B="$lr ($b$B$lr)"
   fi
 
-  local short="$u\u$x$g@$h\h$g:$w$dir$B$p$P$x "
-  local long="$g╔ $u\u$x$g@$h\h$g:$w$dir$B\n$g╚ $p$P$x "
-  local double="$g╔ $u\u$x$g@$h\h$g:$w$dir\n$g║ $B\n$g╚ $p$P$x "
+  local short="$u\u$x$lg@$h\h$w:$w$dir$B$p$P$x "
+  local long="$lg╔ $u\u$x$w@$h\h$w:$w$dir$B\n$lg╚ $p$P$x "
+  local double="$lg╔ $u\u$x$w@$h\h$w:$w$dir\n$lg║ $B\n$lg╚ $p$P$x "
 
 
   if [ "${#countme}" -gt "${PROMPT_LONG}" ]; then
