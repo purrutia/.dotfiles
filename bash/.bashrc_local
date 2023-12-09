@@ -72,3 +72,7 @@ export ZETTELKASTEN="${HOME}/.zettelkasten/docs"
 
 # ---------- PATH ----------
 PATH="${UTILS}:${PATH}"
+
+# ---------- VI MODE ----------
+set -o vi
+
